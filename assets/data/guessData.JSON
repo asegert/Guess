@@ -1,0 +1,360 @@
+{
+  "limits": [
+    {
+      "param1": "red",
+      "param2": false,
+      "param3": false,
+      "asset": "fill1",
+      "type": 0,
+      "onBoard": false
+    },
+    {
+      "param1": "burgundy",
+      "param2": false,
+      "param3": false,
+      "asset": "fill2",
+      "type": 1,
+      "onBoard": false
+    },
+    {
+      "param1": "orange",
+      "param2": false,
+      "param3": false,
+      "asset": "fill3",
+      "type": 2,
+      "onBoard": false
+    },
+    {
+      "param1": "yellow",
+      "param2": false,
+      "param3": false,
+      "asset": "fill4",
+      "type": 3,
+      "onBoard": false
+    },
+    {
+      "param1": "green",
+      "param2": false,
+      "param3": false,
+      "asset": "fill5",
+      "type": 4,
+      "onBoard": false
+    },
+    {
+      "param1": "green",
+      "param2": true,
+      "param3": false,
+      "asset": "fill6",
+      "type": 5,
+      "onBoard": false
+    },
+    {
+      "param1": "burgundy",
+      "param2": true,
+      "param3": false,
+      "asset": "fill7",
+      "type": 6,
+      "onBoard": false
+    },
+    {
+      "param1": "red",
+      "param2": true,
+      "param3": false,
+      "asset": "fill8",
+      "type": 7,
+      "onBoard": false
+    },
+    {
+      "param1": "yellow",
+      "param2": true,
+      "param3": false,
+      "asset": "fill9",
+      "type": 8,
+      "onBoard": false
+    },
+    {
+      "param1": "orange",
+      "param2": true,
+      "param3": false,
+      "asset": "fill10",
+      "type": 9,
+      "onBoard": false
+    },
+    {
+      "param1": "orange",
+      "param2": false,
+      "param3": true,
+      "asset": "fill11",
+      "type": 10,
+      "onBoard": false
+    },
+    {
+      "param1": "red",
+      "param2": false,
+      "param3": true,
+      "asset": "fill12",
+      "type": 11,
+      "onBoard": false
+    },
+    {
+      "param1": "burgundy",
+      "param2": false,
+      "param3": true,
+      "asset": "fill13",
+      "type": 12,
+      "onBoard": false
+    },
+    {
+      "param1": "yellow",
+      "param2": false,
+      "param3": true,
+      "asset": "fill14",
+      "type": 13,
+      "onBoard": false
+    },
+    {
+      "param1": "green",
+      "param2": false,
+      "param3": true,
+      "asset": "fill15",
+      "type": 14,
+      "onBoard": false
+    },
+    {
+      "param1": "blue",
+      "param2": false,
+      "param3": true,
+      "asset": "fill16",
+      "type": 15,
+      "onBoard": false
+    },
+    {
+      "param1": "purple",
+      "param2": false,
+      "param3": true,
+      "asset": "fill17",
+      "type": 16,
+      "onBoard": false
+    },
+    {
+      "param1": "pink",
+      "param2": false,
+      "param3": true,
+      "asset": "fill18",
+      "type": 17,
+      "onBoard": false
+    },
+    {
+      "param1": "blue",
+      "param2": false,
+      "param3": false,
+      "asset": "fill19",
+      "type": 18,
+      "onBoard": false
+    },
+    {
+      "param1": "purple",
+      "param2": false,
+      "param3": false,
+      "asset": "fill20",
+      "type": 19,
+      "onBoard": false
+    },
+    {
+      "param1": "pink",
+      "param2": false,
+      "param3": false,
+      "asset": "fill21",
+      "type": 20,
+      "onBoard": false
+    },
+    {
+      "param1": "pink",
+      "param2": true,
+      "param3": false,
+      "asset": "fill22",
+      "type": 21,
+      "onBoard": false
+    },
+    {
+      "param1": "purple",
+      "param2": true,
+      "param3": false,
+      "asset": "fill23",
+      "type": 22,
+      "onBoard": false
+    },
+    {
+      "param1": "blue",
+      "param2": true,
+      "param3": false,
+      "asset": "fill24",
+      "type": 23,
+      "onBoard": false
+    },
+    {
+      "param1": "grey",
+      "param2": false,
+      "param3": false,
+      "asset": "fill25",
+      "type": 24,
+      "onBoard": false
+    },
+    {
+      "param1": "grey",
+      "param2": true,
+      "param3": false,
+      "asset": "fill26",
+      "type": 25,
+      "onBoard": false
+    },
+    {
+      "param1": "grey",
+      "param2": false,
+      "param3": true,
+      "asset": "fill27",
+      "type": 26,
+      "onBoard": false
+    },
+    {
+      "param1": "brown",
+      "param2": false,
+      "param3": false,
+      "asset": "fill28",
+      "type": 27,
+      "onBoard": false
+    },
+    {
+      "param1": "white",
+      "param2": false,
+      "param3": false,
+      "asset": "fill29",
+      "type": 28,
+      "onBoard": false
+    },
+    {
+      "param1": "brown",
+      "param2": true,
+      "param3": false,
+      "asset": "fill30",
+      "type": 29,
+      "onBoard": false
+    },
+    {
+      "param1": "white",
+      "param2": true,
+      "param3": false,
+      "asset": "fill31",
+      "type": 30,
+      "onBoard": false
+    },
+    {
+      "param1": "brown",
+      "param2": false,
+      "param3": true,
+      "asset": "fill32",
+      "type": 31,
+      "onBoard": false
+    }
+  ],
+   "queries": [
+    {
+      "question": "Is your card RED?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "red"
+    },
+    {
+      "question": "Is your card BURGUNDY?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "burgundy"
+    },
+    {
+      "question": "Is your card ORANGE?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "orange"
+    },
+    {
+      "question": "Is your card YELLOW?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "yellow"
+    },
+    {
+      "question": "Is your card GREEN?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "green"
+    },
+    {
+      "question": "Is your card BLUE?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "blue"
+    },
+    {
+      "question": "Is your card PURPLE?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "purple"
+    },
+    {
+      "question": "Is your card PINK?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "pink"
+    },
+    {
+      "question": "Is your card GREY?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "grey"
+    },
+    {
+      "question": "Is your card BROWN?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "brown"
+    },
+    {
+      "question": "Is your card WHITE?",
+      "answer": false,
+      "asked": false,
+      "type": "colour",
+      "param": "white"
+    },
+    {
+      "question": "Does your card have SQUARES?",
+      "answer": false,
+      "asked": false,
+      "type": "shape",
+      "param": "square"
+    },
+    {
+      "question": "Does your card have a CIRCLE?",
+      "answer": false,
+      "asked": false,
+      "type": "shape",
+      "param": "circle"
+    },
+    {
+      "question": "Is your card BLANK\n(No squares/circles)?",
+      "answer": false,
+      "asked": false,
+      "type": "shape",
+      "param": "blank"
+    }
+  ]
+}
