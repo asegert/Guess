@@ -9,6 +9,8 @@ GuessWho.GameState = {
       this.allData = JSON.parse(this.game.cache.getText('guessData'));
       
       this.boardCards = new Array();
+      this.queries = new Array();
+      this.playerQueries = this.add.group();
       
       var cards = this.shuffle(this.allData.cards);
       
@@ -24,6 +26,7 @@ GuessWho.GameState = {
       
       for(var i=0, len=this.allData.queries.length; i<len; i++)
       {
+          this.queries[this.queries.length] = this.allData.queries[i];
           var query = this.add.text(550, i * 40, this.allData.queries[i].question);
           query.data = this.allData.queries[i];
           query.inputEnabled=true;
@@ -34,6 +37,7 @@ GuessWho.GameState = {
               this.alpha = 0.1;
               GuessWho.GameState.removeCards(this.data);
           }, query);
+          this.playerQueries.add(query);
       }
     },
     removeCards: function(query)
@@ -74,6 +78,8 @@ GuessWho.GameState = {
         {
             console.log('go');
         }
+        
+        this.ask();
     },
     shuffle: function(shuffleArray)
     {
@@ -86,7 +92,24 @@ GuessWho.GameState = {
             shuffleArray.splice(rand, 1);
         }
         return returnArray;
-    }
+    },
+    ask: function()
+    {
+        var rand = Math.floor(Math.random()*this.queries.length);
+        console.log(this.queries[rand].question);
+        
+        this.playerQueries.alpha-=1;
+        var query = this.add.text(600, 40, this.queries[rand].question);
+          query.addColor(this.allData.queries[rand].colour1, this.allData.queries[rand].startColour);
+          query.addColor(this.allData.queries[rand].colour2, this.allData.queries[rand].endColour);
+        
+        var yes = this.add.text(650, 120, "Yes", {fill: '#009900'});
+        var no = this.add.text(750, 120, "No", {fill: '#FF0000'});
+        
+        this.queries.splice(rand, 1);
+        //When answered check if answered positively and remove all similar queries once positively answered
+        
+    },
      /* //Stores only the query elements which contain questions, answers, if question has been asked, type of data (i.e. color) and specific param (i.e. pink)
       this.queryData = this.allData.queries;
       //Stores only the limit (card) elements and their variables
