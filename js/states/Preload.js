@@ -67,6 +67,40 @@ GuessWho.PreloadState = {
     this.load.image('guess', 'assets/images/ButtonGuess.png');
     this.load.image('accept', 'assets/images/ButtonAccept.png');
     this.load.image('reject', 'assets/images/ButtonReject.png');
+      
+      
+    this.load.image('car_red', 'assets/images/car_red.png');
+    this.load.image('car_black', 'assets/images/car_black.png');
+    this.load.image('car_orange', 'assets/images/car_orange.png');
+    this.load.image('car_yellow', 'assets/images/car_yellow.png');
+    this.load.image('car_green', 'assets/images/car_green.png');
+    this.load.image('car_blue', 'assets/images/car_blue.png');
+    this.load.image('car_purple', 'assets/images/car_purple.png');
+    this.load.image('car_pink', 'assets/images/car_pink.png');
+    this.load.image('car_grey', 'assets/images/car_grey.png');
+    this.load.image('car_white', 'assets/images/car_white.png');
+      
+    this.load.image('truck_red', 'assets/images/truck_red.png');
+    this.load.image('truck_black', 'assets/images/truck_black.png');
+    this.load.image('truck_orange', 'assets/images/truck_orange.png');
+    this.load.image('truck_yellow', 'assets/images/truck_yellow.png');
+    this.load.image('truck_green', 'assets/images/truck_green.png');
+    this.load.image('truck_blue', 'assets/images/truck_blue.png');
+    this.load.image('truck_purple', 'assets/images/truck_purple.png');
+    this.load.image('truck_pink', 'assets/images/truck_pink.png');
+    this.load.image('truck_grey', 'assets/images/truck_grey.png');
+    this.load.image('truck_white', 'assets/images/truck_white.png');
+      
+    this.load.image('utility_red', 'assets/images/utility_red.png');
+    this.load.image('utility_black', 'assets/images/utility_black.png');
+    this.load.image('utility_orange', 'assets/images/utility_orange.png');
+    this.load.image('utility_yellow', 'assets/images/utility_yellow.png');
+    this.load.image('utility_green', 'assets/images/utility_green.png');
+    this.load.image('utility_blue', 'assets/images/utility_blue.png');
+    this.load.image('utility_purple', 'assets/images/utility_purple.png');
+    this.load.image('utility_pink', 'assets/images/utility_pink.png');
+    this.load.image('utility_grey', 'assets/images/utility_grey.png');
+    this.load.image('utility_white', 'assets/images/utility_white.png');
     
     //Data
     //Contains limit objects which correspond to card faces

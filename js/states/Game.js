@@ -3,11 +3,78 @@ var GuessWho = GuessWho || {};
 
 GuessWho.GameState = {
 
-  init: function() 
+  create: function() 
   {   
       //Stores all data from JSON file
       this.allData = JSON.parse(this.game.cache.getText('guessData'));
-      //Stores only the query elements which contain questions, answers, if question has been asked, type of data (i.e. color) and specific param (i.e. pink)
+      
+      this.boardCards = new Array();
+      
+      for(var i=0, len=this.allData.cards.length; i<len; i++)
+      {
+          var card = new GuessWho.Card(this);
+          var y = Math.floor(i/5);
+          var x = i - (5*y);
+          this.boardCards[this.boardCards.length] = card.init(this.allData.cards[i].texture, this.allData.cards[i].colour, this.allData.cards[i].type, x * 100, y * 100);
+      }
+      
+      this.chosenCard = this.boardCards[Math.floor(Math.random()*this.boardCards.length)];
+      console.log(this.chosenCard);
+      
+      for(var i=0, len=this.allData.queries.length; i<len; i++)
+      {
+          var query = this.add.text(550, i * 40, this.allData.queries[i].question);
+          query.data = this.allData.queries[i];
+          query.inputEnabled=true;
+          query.addColor(this.allData.queries[i].colour1, this.allData.queries[i].startColour);
+          query.addColor(this.allData.queries[i].colour2, this.allData.queries[i].endColour);
+          query.events.onInputDown.add(function()
+          {
+              console.log(this._text);
+              GuessWho.GameState.removeCards(this.data);
+          }, query);
+      }
+    },
+    removeCards: function(query)
+    {
+        if(query.type === 'colour')
+        {
+            if(query.param != this.chosenCard.colour)
+            {
+                for(var i=0, len = this.boardCards.length; i<len; i++)
+                {
+                    if(query.param === this.boardCards[i].colour)
+                    {
+                        this.boardCards[i].sprite.alpha = 0;
+                        this.boardCards.splice(i, 1);
+                        i--;
+                        len--;
+                    }
+                }
+            }
+        }
+        else if(query.type === 'type')
+        {
+            if(query.param != this.chosenCard.type)
+            {
+                for(var i=0, len = this.boardCards.length; i<len; i++)
+                {
+                    if(query.param === this.boardCards[i].type)
+                    {
+                        this.boardCards[i].sprite.alpha = 0;
+                        this.boardCards.splice(i, 1);
+                        i--;
+                        len--;
+                    }
+                }
+            }
+        }
+        if(this.boardCards.length === 1)
+        {
+            console.log('go');
+        }
+    }
+     /* //Stores only the query elements which contain questions, answers, if question has been asked, type of data (i.e. color) and specific param (i.e. pink)
       this.queryData = this.allData.queries;
       //Stores only the limit (card) elements and their variables
       this.limitData = this.allData.limits;
@@ -541,5 +608,5 @@ GuessWho.GameState = {
         
       this.consolLabel = this.add.text(120, 370, "Opponent\'s Turn", style2);
       this.OpponentRun();
-  }
+  }*/
 };
