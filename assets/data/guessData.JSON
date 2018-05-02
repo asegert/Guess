@@ -263,98 +263,294 @@
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "red"
-    },
-    {
-      "question": "Is your card BURGUNDY?",
-      "answer": false,
-      "asked": false,
-      "type": "colour",
-      "param": "burgundy"
+      "param": "red",
+      "colour1": "#FF0000",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 16
     },
     {
       "question": "Is your card ORANGE?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "orange"
+      "param": "orange",
+      "colour1": "#FF8000",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 19
     },
     {
       "question": "Is your card YELLOW?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "yellow"
+      "param": "yellow",
+      "colour1": "#FFFF00",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 19
     },
     {
       "question": "Is your card GREEN?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "green"
+      "param": "green",
+      "colour1": "#009900",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 18
     },
     {
       "question": "Is your card BLUE?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "blue"
+      "param": "blue",
+      "colour1": "#0099FF",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 17
     },
     {
       "question": "Is your card PURPLE?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "purple"
+      "param": "purple",
+      "colour1": "#330066",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 19
     },
     {
       "question": "Is your card PINK?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "pink"
+      "param": "pink",
+      "colour1": "#CC0099",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 17
     },
     {
       "question": "Is your card GREY?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "grey"
+      "param": "grey",
+      "colour1": "#999999",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 17
     },
     {
-      "question": "Is your card BROWN?",
+      "question": "Is your card BLACK?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "brown"
+      "param": "black",
+      "colour1": "#000000",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 18
     },
     {
       "question": "Is your card WHITE?",
       "answer": false,
       "asked": false,
       "type": "colour",
-      "param": "white"
+      "param": "white",
+      "colour1": "#DDDDDD",
+      "colour2": "#000000",
+      "startColour": 13,
+      "endColour": 18
     },
     {
-      "question": "Does your card have SQUARES?",
+      "question": "Is your card a TRUCK?",
       "answer": false,
       "asked": false,
-      "type": "shape",
-      "param": "square"
+      "type": "type",
+      "param": "truck",
+      "colour1": "#663300",
+      "colour2": "#000000",
+      "startColour": 15,
+      "endColour": 20
     },
     {
-      "question": "Does your card have a CIRCLE?",
+      "question": "Is your card a CAR?",
       "answer": false,
       "asked": false,
-      "type": "shape",
-      "param": "circle"
+      "type": "type",
+      "param": "car",
+      "colour1": "#663300",
+      "colour2": "#000000",
+      "startColour": 15,
+      "endColour": 18
     },
     {
-      "question": "Is your card BLANK\n(No squares/circles)?",
+      "question": "Is your card a SPORT UTILITY \nVEHICLE?",
       "answer": false,
       "asked": false,
-      "type": "shape",
-      "param": "blank"
+      "type": "type",
+      "param": "utility",
+      "colour1": "#663300",
+      "colour2": "#000000",
+      "startColour": 15,
+      "endColour": 36
     }
-  ]
+  ],
+  "cards":[
+      {
+        "texture": "car_black",
+        "colour": "black",
+        "type": "car"
+      },
+      {
+        "texture": "car_blue",
+        "colour": "blue",
+        "type": "car"
+      },
+      {
+        "texture": "car_green",
+        "colour": "green",
+        "type": "car"
+      },
+      {
+        "texture": "car_grey",
+        "colour": "grey",
+        "type": "car"
+      },
+      {
+        "texture": "car_orange",
+        "colour": "orange",
+        "type": "car"
+      },
+      {
+        "texture": "car_pink",
+        "colour": "pink",
+        "type": "car"
+      },
+      {
+        "texture": "car_purple",
+        "colour": "purple",
+        "type": "car"
+      },
+      {
+        "texture": "car_red",
+        "colour": "red",
+        "type": "car"
+      },
+      {
+        "texture": "car_white",
+        "colour": "white",
+        "type": "car"
+      },
+      {
+        "texture": "car_yellow",
+        "colour": "yellow",
+        "type": "car"
+      },
+      {
+        "texture": "truck_black",
+        "colour": "black",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_blue",
+        "colour": "blue",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_green",
+        "colour": "green",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_grey",
+        "colour": "grey",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_orange",
+        "colour": "orange",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_pink",
+        "colour": "pink",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_purple",
+        "colour": "purple",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_red",
+        "colour": "red",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_white",
+        "colour": "white",
+        "type": "truck"
+      },
+      {
+        "texture": "truck_yellow",
+        "colour": "yellow",
+        "type": "truck"
+      },{
+        "texture": "utility_black",
+        "colour": "black",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_blue",
+        "colour": "blue",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_green",
+        "colour": "green",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_grey",
+        "colour": "grey",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_orange",
+        "colour": "orange",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_pink",
+        "colour": "pink",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_purple",
+        "colour": "purple",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_red",
+        "colour": "red",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_white",
+        "colour": "white",
+        "type": "utility"
+      },
+      {
+        "texture": "utility_yellow",
+        "colour": "yellow",
+        "type": "utility"
+      }
+    ]
 }
