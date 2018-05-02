@@ -10,16 +10,17 @@ GuessWho.GameState = {
       
       this.boardCards = new Array();
       
-      for(var i=0, len=this.allData.cards.length; i<len; i++)
+      var cards = this.shuffle(this.allData.cards);
+      
+      for(var i=0, len=cards.length; i<len; i++)
       {
           var card = new GuessWho.Card(this);
           var y = Math.floor(i/5);
           var x = i - (5*y);
-          this.boardCards[this.boardCards.length] = card.init(this.allData.cards[i].texture, this.allData.cards[i].colour, this.allData.cards[i].type, x * 100, y * 100);
+          this.boardCards[this.boardCards.length] = card.init(cards[i].texture, cards[i].colour, cards[i].type, x * 100, y * 100);
       }
       
       this.chosenCard = this.boardCards[Math.floor(Math.random()*this.boardCards.length)];
-      console.log(this.chosenCard);
       
       for(var i=0, len=this.allData.queries.length; i<len; i++)
       {
@@ -30,7 +31,7 @@ GuessWho.GameState = {
           query.addColor(this.allData.queries[i].colour2, this.allData.queries[i].endColour);
           query.events.onInputDown.add(function()
           {
-              console.log(this._text);
+              this.alpha = 0.1;
               GuessWho.GameState.removeCards(this.data);
           }, query);
       }
@@ -73,6 +74,18 @@ GuessWho.GameState = {
         {
             console.log('go');
         }
+    },
+    shuffle: function(shuffleArray)
+    {
+        var returnArray = new Array();
+        
+        for(var i=0, len=shuffleArray.length; i<len; i++)
+        {
+            var rand = Math.floor(Math.random()*shuffleArray.length);
+            returnArray[i]=shuffleArray[rand];
+            shuffleArray.splice(rand, 1);
+        }
+        return returnArray;
     }
      /* //Stores only the query elements which contain questions, answers, if question has been asked, type of data (i.e. color) and specific param (i.e. pink)
       this.queryData = this.allData.queries;
