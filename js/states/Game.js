@@ -121,6 +121,8 @@ GuessWho.GameState = {
             {
                 if(this.cardsMasterList[i].colour === this.playerCardDetails.colour && this.cardsMasterList[i].type === this.playerCardDetails.type)
                 {
+                    this.playerQueries.alpha-=1;
+                    this.add.text(500, 40, "Your Card is:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
                     console.log(this.cardsMasterList[i]);
                     console.log(this.playerCardDetails);
                 }
