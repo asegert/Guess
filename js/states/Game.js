@@ -26,11 +26,12 @@ GuessWho.GameState = {
       this.playerChosenCard = null;
       this.chosenCard = this.boardCards[Math.floor(Math.random()*this.boardCards.length)];
       
+      this.playerQueries.add(this.add.text(510, 0, "Ask a question to determine\nwhat car your opponent has.", {font: '28px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'}));
       for(var i=0, len=this.allData.queries.length; i<len; i++)
       {
           this.queries[this.queries.length] = this.allData.queries[i];
           var x = 500 + (245 * (Math.floor((i/7)+1)-1));
-          var y = (i%7) * 40;
+          var y = 100 + ((i%7) * 40);
           var query = this.add.text(x, y, this.allData.queries[i].question, {font: '18px Georgia', stroke: '#FFFFFF', strokeThickness: 2});
           query.fontWeight = 'bold';
           query.data = this.allData.queries[i];
@@ -46,6 +47,7 @@ GuessWho.GameState = {
           }, query);
           this.playerQueries.add(query);
       }
+      this.playerQueries.alpha -=1;
       
       this.guess = this.add.button(850, 550, 'guess', function()
       {
@@ -54,6 +56,8 @@ GuessWho.GameState = {
               this.boardCards[i].sprite.inputEnabled = true;
           }
       }, this);
+      
+      this.startText = this.add.text(500, 40, "Choose a car for the other\nplayer to guess.", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
     },
     removeCards: function(query)
     { 

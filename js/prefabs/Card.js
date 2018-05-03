@@ -18,6 +18,9 @@ GuessWho.Card = function(state) {
             if(this.state.playerChosenCard === null)
             {
                 this.state.playerChosenCard = this;
+                this.state.startText.kill();
+                console.log(this.state.playerQueries);
+                this.state.playerQueries.alpha +=1;
                 
                 for(var i=0, len=this.state.boardCards.length; i<len; i++)
                 {
