@@ -363,7 +363,7 @@
       "asked": false,
       "type": "colour",
       "param": "white",
-      "colour1": "#DDDDDD",
+      "colour1": "#FFFFFF",
       "colour2": "#000000",
       "startColour": 13,
       "endColour": 18
@@ -391,15 +391,15 @@
       "endColour": 18
     },
     {
-      "question": "Is your card a SPORT UTILITY \nVEHICLE?",
+      "question": "Is your card an SUV?",
       "answer": false,
       "asked": false,
       "type": "type",
       "param": "utility",
       "colour1": "#663300",
       "colour2": "#000000",
-      "startColour": 15,
-      "endColour": 36
+      "startColour": 16,
+      "endColour": 19
     }
   ],
   "cards":[

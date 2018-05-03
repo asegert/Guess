@@ -7,10 +7,11 @@ GuessWho.GameState = {
   {   
       //Stores all data from JSON file
       this.allData = JSON.parse(this.game.cache.getText('guessData'));
-      
+      this.background = this.add.sprite(0, 0, 'board');
       this.boardCards = new Array();
       this.queries = new Array();
       this.playerQueries = this.add.group(); 
+      this.playerCardDetails = {};
       
       var cards = this.shuffle(this.allData.cards);
       
@@ -21,17 +22,23 @@ GuessWho.GameState = {
           var x = i - (5*y);
           this.boardCards[this.boardCards.length] = card.init(cards[i].texture, cards[i].colour, cards[i].type, x * 100, y * 100);
       }
-      this.playerChosenCard = this.boardCards[0];
+      this.cardsMasterList = this.boardCards.slice(0);
+      this.playerChosenCard = null;
       this.chosenCard = this.boardCards[Math.floor(Math.random()*this.boardCards.length)];
       
       for(var i=0, len=this.allData.queries.length; i<len; i++)
       {
           this.queries[this.queries.length] = this.allData.queries[i];
-          var query = this.add.text(550, i * 40, this.allData.queries[i].question);
+          var x = 500 + (245 * (Math.floor((i/7)+1)-1));
+          var y = (i%7) * 40;
+          var query = this.add.text(x, y, this.allData.queries[i].question, {font: '18px Georgia', stroke: '#FFFFFF', strokeThickness: 2});
+          query.fontWeight = 'bold';
           query.data = this.allData.queries[i];
           query.inputEnabled=true;
           query.addColor(this.allData.queries[i].colour1, this.allData.queries[i].startColour);
           query.addColor(this.allData.queries[i].colour2, this.allData.queries[i].endColour);
+          query.addStrokeColor('#000000', this.allData.queries[i].startColour);
+          query.addStrokeColor('#FFFFFF', this.allData.queries[i].endColour);
           query.events.onInputDown.add(function()
           {
               this.alpha = 0.1;
@@ -39,9 +46,17 @@ GuessWho.GameState = {
           }, query);
           this.playerQueries.add(query);
       }
+      
+      this.guess = this.add.button(850, 550, 'guess', function()
+      {
+          for(var i=0, len=this.boardCards.length; i<len; i++)
+          {
+              this.boardCards[i].sprite.inputEnabled = true;
+          }
+      }, this);
     },
     removeCards: function(query)
-    {
+    { 
         if(query.type === 'colour')
         {
             if(query.param != this.chosenCard.colour)
@@ -95,30 +110,48 @@ GuessWho.GameState = {
     },
     ask: function()
     {
-        var rand = Math.floor(Math.random()*this.queries.length);
-        console.log(this.queries[rand].question);
+        console.log(this.queries.length);
+        if(this.queries.length === 0)
+        {
+            for(var i=0, len=this.cardsMasterList.length; i<len; i++)
+            {
+                if(this.cardsMasterList[i].colour === this.playerCardDetails.colour && this.cardsMasterList[i].type === this.playerCardDetails.type)
+                {
+                    console.log(this.cardsMasterList[i]);
+                    console.log(this.playerCardDetails);
+                }
+            }
+        }
+        else
+        {
+            this.myCard = this.add.sprite(600, 300, this.playerChosenCard.texture);
+            var rand = Math.floor(Math.random()*this.queries.length);
+            console.log(this.queries[rand].question);
         
-        this.playerQueries.alpha-=1;
-        this.playerQueries.forEach(function(q)
-        {
-            q.inputEnabled=false;
-        }, this);
-        this.currentQuery = this.add.text(600, 40, this.queries[rand].question);
-        this.currentQuery.addColor(this.queries[rand].colour1, this.queries[rand].startColour);
-        this.currentQuery.addColor(this.queries[rand].colour2, this.queries[rand].endColour);
+            this.playerQueries.alpha-=1;
+            this.playerQueries.forEach(function(q)
+            {
+                q.inputEnabled=false;
+            }, this);
+            this.currentQuery = this.add.text(600, 40, this.queries[rand].question, {stroke: '#FFFFFF', strokeThickness: 2});
+            this.currentQuery.addColor(this.queries[rand].colour1, this.queries[rand].startColour);
+            this.currentQuery.addColor(this.queries[rand].colour2, this.queries[rand].endColour);
+            this.currentQuery.addStrokeColor('#000000', this.queries[rand].startColour);
+            this.currentQuery.addStrokeColor(this.queries[rand].colour2, this.queries[rand].endColour);
         
-        this.yesButton = this.add.text(650, 120, "Yes", {fill: '#009900'});
-        this.yesButton.inputEnabled = true;
-        this.yesButton.events.onInputDown.add(function()
-        {
-            this.checkResponse(true, rand);
-        }, this);
-        this.noButton = this.add.text(750, 120, "No", {fill: '#FF0000'});
-        this.noButton.inputEnabled = true;
-        this.noButton.events.onInputDown.add(function()
-        {
-            this.checkResponse(false, rand);
-        }, this);
+            this.yesButton = this.add.text(650, 120, "Yes", {fill: '#009900'});
+            this.yesButton.inputEnabled = true;
+            this.yesButton.events.onInputDown.add(function()
+            {
+                this.checkResponse(true, rand);
+            }, this);
+            this.noButton = this.add.text(750, 120, "No", {fill: '#FF0000'});
+            this.noButton.inputEnabled = true;
+            this.noButton.events.onInputDown.add(function()
+            {
+                this.checkResponse(false, rand);
+            }, this);
+        }
     },
     checkResponse: function(response, rand)
     {
@@ -128,11 +161,11 @@ GuessWho.GameState = {
         {
             if(query.param === this.playerChosenCard.colour && response)
             {
+                this.playerCardDetails.colour = query.param;
                 for(var i=0, len = this.queries.length; i<len; i++)
                 {
                     if(this.queries[i].type === 'colour')
                     {
-                        //Store colour
                         this.queries.splice(i, 1);
                         i--;
                         len--;
@@ -157,11 +190,11 @@ GuessWho.GameState = {
         {
             if(query.param === this.playerChosenCard.type && response)
             {
+                this.playerCardDetails.type = query.param;
                 for(var i=0, len = this.queries.length; i<len; i++)
                 {
                     if(this.queries[i].type === 'type')
                     {
-                        //Store type
                         this.queries.splice(i, 1);
                         i--;
                         len--;
@@ -188,6 +221,7 @@ GuessWho.GameState = {
         this.currentQuery.kill();
         this.yesButton.kill();
         this.noButton.kill();
+        this.myCard.kill();
         this.playerQueries.alpha+=1;
         this.playerQueries.forEach(function(q)
         {
