@@ -10,6 +10,7 @@ GuessWho.PreloadState = {
     this.load.setPreloadSprite(this.preloadBar);*/
 
     //images
+    this.load.image('main', 'assets/images/Main.png');
     this.load.image('back', 'assets/images/cardBack.png');
     this.load.image('front', 'assets/images/cardFront.png');
     this.load.image('board', 'assets/images/Board.png');
@@ -111,6 +112,6 @@ GuessWho.PreloadState = {
 
   },
   create: function() {
-    this.state.start('Game');
+    this.state.start('Story');
   }
 };
