@@ -9,6 +9,9 @@ GuessWho.Card = function(state) {
   
     GuessWho.Card.prototype.init = function(texture, colour, type, x, y)
     {
+        this.texture = texture;
+        this.colour = colour;
+        this.type = type;
         this.sprite = this.state.add.sprite(x, y, texture);
         this.sprite.scale.setTo(0.4, 0.4);
         this.sprite.inputEnabled = true;
@@ -29,14 +32,24 @@ GuessWho.Card = function(state) {
             }
             else if(this === this.state.chosenCard)
             {
-                console.log('success');
+                this.state.playerQueries.alpha-=1;
+                this.state.add.text(510, 40, "              You Found It!\nYour opponent's card was:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
+                this.state.add.sprite(600, 200, this.state.chosenCard.texture);
+                console.log(this.state.chosenCard);
+            }
+            else
+            {
+                this.state.playerQueries.alpha-=1;
+                var tempText = this.state.add.text(520, 40, " Not Quite, Keep Trying.", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
+                
+                this.game.time.events.add(Phaser.Timer.SECOND * 2, function()
+                {
+                    tempText.kill();
+                    this.state.playerQueries.alpha+=1;
+                    this.state.ask();
+                }, this);
             }
         }, this);
-        this.texture = texture;
-        this.colour = colour;
-        this.type = type;
-        this.chosenPlayer=false;
-        this.chosenOpponent=false;
         
         return this;
     };

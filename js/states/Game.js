@@ -122,7 +122,8 @@ GuessWho.GameState = {
                 if(this.cardsMasterList[i].colour === this.playerCardDetails.colour && this.cardsMasterList[i].type === this.playerCardDetails.type)
                 {
                     this.playerQueries.alpha-=1;
-                    this.add.text(500, 40, "Your Card is:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
+                    this.add.text(600, 40, "Your Card is:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
+                    this.add.sprite(600, 200, this.playerChosenCard.texture);
                     console.log(this.cardsMasterList[i]);
                     console.log(this.playerCardDetails);
                 }
@@ -161,6 +162,10 @@ GuessWho.GameState = {
     },
     checkResponse: function(response, rand)
     {
+        if(this.error!=undefined)
+        {
+            this.error.kill();
+        }
         var query = this.queries[rand];
         
         if(query.type === 'colour')
@@ -189,7 +194,7 @@ GuessWho.GameState = {
             else
             {
                 //display error
-                console.log('error');
+                this.error = this.add.text(620, 200, "Are you sure?", {fill: '#FFFF00', font: '32px Georgia', fontWeight: 'bold'});
             }
         }
         else if(query.type === 'type')
@@ -218,7 +223,7 @@ GuessWho.GameState = {
             else
             {
                 //display error
-                console.log('error');
+                this.error = this.add.text(620, 200, "Are you sure?", {fill: '#FFFF00', font: '32px Georgia', fontWeight: 'bold'});
             }
         }
     },
