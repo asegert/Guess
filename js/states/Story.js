@@ -4,7 +4,10 @@ GuessWho.StoryState = {
     create: function ()
     {
         this.add.sprite(0, 0, 'main');
-        this.game.state.start('Game');
+        this.add.button(500, 450, 'start', function()
+        {
+            this.game.state.start('Game');
+        }, this);
     }
 };
 /*Copyright (C) Wayside Co. - All Rights Reserved

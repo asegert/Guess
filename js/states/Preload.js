@@ -14,7 +14,7 @@ GuessWho.PreloadState = {
     this.load.image('back', 'assets/images/cardBack.png');
     this.load.image('front', 'assets/images/cardFront.png');
     this.load.image('board', 'assets/images/Board.png');
-    this.load.image('panel', 'assets/images/userPanel.png');
+    this.load.image('start', 'assets/images/start.png');
     
     //Card fillers
     this.load.image('fill1', 'assets/images/fill1.png');
