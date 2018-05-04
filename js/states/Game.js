@@ -56,6 +56,7 @@ GuessWho.GameState = {
               this.boardCards[i].sprite.inputEnabled = true;
           }
       }, this);
+      this.playerQueries.add(this.guess);
       
       this.startText = this.add.text(500, 40, "Choose a car for the other\nplayer to guess.", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
     },
@@ -115,13 +116,17 @@ GuessWho.GameState = {
     ask: function()
     {
         console.log(this.queries.length);
+        this.playerQueries.alpha-=1;
+        this.playerQueries.forEach(function(q)
+        {
+            q.inputEnabled=false;
+        }, this);
         if(this.queries.length === 0)
         {
             for(var i=0, len=this.cardsMasterList.length; i<len; i++)
             {
                 if(this.cardsMasterList[i].colour === this.playerCardDetails.colour && this.cardsMasterList[i].type === this.playerCardDetails.type)
                 {
-                    this.playerQueries.alpha-=1;
                     this.add.text(600, 40, "Your Card is:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
                     this.add.sprite(600, 200, this.playerChosenCard.texture);
                     console.log(this.cardsMasterList[i]);
@@ -135,11 +140,6 @@ GuessWho.GameState = {
             var rand = Math.floor(Math.random()*this.queries.length);
             console.log(this.queries[rand].question);
         
-            this.playerQueries.alpha-=1;
-            this.playerQueries.forEach(function(q)
-            {
-                q.inputEnabled=false;
-            }, this);
             this.currentQuery = this.add.text(600, 40, this.queries[rand].question, {stroke: '#FFFFFF', strokeThickness: 2});
             this.currentQuery.addColor(this.queries[rand].colour1, this.queries[rand].startColour);
             this.currentQuery.addColor(this.queries[rand].colour2, this.queries[rand].endColour);

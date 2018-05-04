@@ -18,6 +18,11 @@ GuessWho.Card = function(state) {
         this.sprite.events.onInputDown.add(function()
         {
             console.log(this);
+            for(var i=0, len=this.state.boardCards.length; i<len; i++)
+            {
+                this.state.boardCards[i].sprite.inputEnabled = false;
+            }
+            
             if(this.state.playerChosenCard === null)
             {
                 this.state.playerChosenCard = this;
@@ -32,6 +37,10 @@ GuessWho.Card = function(state) {
             }
             else if(this === this.state.chosenCard)
             {
+                this.state.playerQueries.forEach(function(q)
+                {
+                    q.inputEnabled=false;
+                }, this);
                 this.state.playerQueries.alpha-=1;
                 this.state.add.text(510, 40, "              You Found It!\nYour opponent's card was:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
                 this.state.add.sprite(600, 200, this.state.chosenCard.texture);
