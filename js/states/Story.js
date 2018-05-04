@@ -4,7 +4,7 @@ GuessWho.StoryState = {
     create: function ()
     {
         this.add.sprite(0, 0, 'main');
-        this.add.button(500, 450, 'start', function()
+        this.add.button(400, 500, 'start', function()
         {
             this.game.state.start('Game');
         }, this);
