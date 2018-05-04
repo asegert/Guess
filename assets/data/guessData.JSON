@@ -1,10 +1,8 @@
 {
   "types":["colour", "type"],
-     "queries": [
+  "queries": [
     {
       "question": "Is your card RED?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "red",
       "colour1": "#FF0000",
@@ -14,8 +12,6 @@
     },
     {
       "question": "Is your card ORANGE?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "orange",
       "colour1": "#FF8000",
@@ -25,8 +21,6 @@
     },
     {
       "question": "Is your card YELLOW?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "yellow",
       "colour1": "#FFFF00",
@@ -36,8 +30,6 @@
     },
     {
       "question": "Is your card GREEN?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "green",
       "colour1": "#009900",
@@ -47,8 +39,6 @@
     },
     {
       "question": "Is your card BLUE?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "blue",
       "colour1": "#0099FF",
@@ -58,8 +48,6 @@
     },
     {
       "question": "Is your card PURPLE?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "purple",
       "colour1": "#330066",
@@ -69,8 +57,6 @@
     },
     {
       "question": "Is your card PINK?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "pink",
       "colour1": "#CC0099",
@@ -80,8 +66,6 @@
     },
     {
       "question": "Is your card GREY?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "grey",
       "colour1": "#999999",
@@ -91,8 +75,6 @@
     },
     {
       "question": "Is your card BLACK?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "black",
       "colour1": "#000000",
@@ -102,8 +84,6 @@
     },
     {
       "question": "Is your card WHITE?",
-      "answer": false,
-      "asked": false,
       "type": "colour",
       "param": "white",
       "colour1": "#DDDDDD",
@@ -113,8 +93,6 @@
     },
     {
       "question": "Is your card a TRUCK?",
-      "answer": false,
-      "asked": false,
       "type": "type",
       "param": "truck",
       "colour1": "#663300",
@@ -124,8 +102,6 @@
     },
     {
       "question": "Is your card a CAR?",
-      "answer": false,
-      "asked": false,
       "type": "type",
       "param": "car",
       "colour1": "#663300",
@@ -135,8 +111,6 @@
     },
     {
       "question": "Is your card an SUV?",
-      "answer": false,
-      "asked": false,
       "type": "type",
       "param": "utility",
       "colour1": "#663300",
