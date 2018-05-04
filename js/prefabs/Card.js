@@ -7,11 +7,10 @@ GuessWho.Card = function(state) {
     this.state = state;
     this.game = state.game;
   
-    GuessWho.Card.prototype.init = function(texture, colour, type, x, y)
+    GuessWho.Card.prototype.init = function(texture, params, x, y)
     {
         this.texture = texture;
-        this.colour = colour;
-        this.type = type;
+        this.params = params;
         this.sprite = this.state.add.sprite(x, y, texture);
         this.sprite.scale.setTo(0.4, 0.4);
         this.sprite.inputEnabled = true;

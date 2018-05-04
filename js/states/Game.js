@@ -20,7 +20,7 @@ GuessWho.GameState = {
           var card = new GuessWho.Card(this);
           var y = Math.floor(i/5);
           var x = i - (5*y);
-          this.boardCards[this.boardCards.length] = card.init(cards[i].texture, cards[i].colour, cards[i].type, x * 100, y * 100);
+          this.boardCards[this.boardCards.length] = card.init(cards[i].texture, cards[i].params, x * 100, y * 100);
       }
       this.cardsMasterList = this.boardCards.slice(0);
       this.playerChosenCard = null;
@@ -62,34 +62,21 @@ GuessWho.GameState = {
     },
     removeCards: function(query)
     { 
-        if(query.type === 'colour')
+        for(var j=0, leng = this.allData.types.length; j<leng; j++)
         {
-            if(query.param != this.chosenCard.colour)
+            if(this.allData.types[j] === query.type)
             {
-                for(var i=0, len = this.boardCards.length; i<len; i++)
+                if(query.param != this.chosenCard.params[j])
                 {
-                    if(query.param === this.boardCards[i].colour)
+                    for(var i=0, len = this.boardCards.length; i<len; i++)
                     {
-                        this.boardCards[i].sprite.alpha = 0;
-                        this.boardCards.splice(i, 1);
-                        i--;
-                        len--;
-                    }
-                }
-            }
-        }
-        else if(query.type === 'type')
-        {
-            if(query.param != this.chosenCard.type)
-            {
-                for(var i=0, len = this.boardCards.length; i<len; i++)
-                {
-                    if(query.param === this.boardCards[i].type)
-                    {
-                        this.boardCards[i].sprite.alpha = 0;
-                        this.boardCards.splice(i, 1);
-                        i--;
-                        len--;
+                        if(query.param === this.boardCards[i].params[j])
+                        {
+                            this.boardCards[i].sprite.alpha = 0;
+                            this.boardCards.splice(i, 1);
+                            i--;
+                            len--;
+                        }
                     }
                 }
             }
@@ -168,62 +155,36 @@ GuessWho.GameState = {
         }
         var query = this.queries[rand];
         
-        if(query.type === 'colour')
+        for(var j=0, leng=this.allData.types.length; j<leng; j++)
         {
-            if(query.param === this.playerChosenCard.colour && response)
+            if(query.type === this.allData.types[j])
             {
-                this.playerCardDetails.colour = query.param;
-                for(var i=0, len = this.queries.length; i<len; i++)
+                if(query.param === this.playerChosenCard.params[j] && response)
                 {
-                    if(this.queries[i].type === 'colour')
+                    this.playerCardDetails[j] = query.param;
+                    for(var i=0, len = this.queries.length; i<len; i++)
                     {
-                        this.queries.splice(i, 1);
-                        i--;
-                        len--;
+                        if(this.queries[i].type === this.allData.types[j])
+                        {
+                            this.queries.splice(i, 1);
+                            i--;
+                            len--;
+                        }
                     }
+                    console.log('elimall');
+                    this.endRound();
                 }
-                console.log('elimall');
-                this.endRound();
-            }
-            else if(query.param != this.playerChosenCard.colour && !response)
-            {
-                this.queries.splice(rand, 1);
-                console.log('elim1');
-                this.endRound();
-            }
-            else
-            {
-                //display error
-                this.error = this.add.text(620, 200, "Are you sure?", {fill: '#FFFF00', font: '32px Georgia', fontWeight: 'bold'});
-            }
-        }
-        else if(query.type === 'type')
-        {
-            if(query.param === this.playerChosenCard.type && response)
-            {
-                this.playerCardDetails.type = query.param;
-                for(var i=0, len = this.queries.length; i<len; i++)
+                else if(query.param != this.playerChosenCard.params[j] && !response)
                 {
-                    if(this.queries[i].type === 'type')
-                    {
-                        this.queries.splice(i, 1);
-                        i--;
-                        len--;
-                    }
+                    this.queries.splice(rand, 1);
+                    console.log('elim1');
+                    this.endRound();
                 }
-                console.log('elimall');
-                this.endRound();
-            }
-            else if(query.param != this.playerChosenCard.type && !response)
-            {
-                this.queries.splice(rand, 1);
-                console.log('elim1');
-                this.endRound();
-            }
-            else
-            {
-                //display error
-                this.error = this.add.text(620, 200, "Are you sure?", {fill: '#FFFF00', font: '32px Georgia', fontWeight: 'bold'});
+                else
+                {
+                    //display error
+                    this.error = this.add.text(620, 200, "Are you sure?", {fill: '#FFFF00', font: '32px Georgia', fontWeight: 'bold'});
+                }
             }
         }
     },
