@@ -49,10 +49,10 @@ GuessWho.Card = function(state) {
                 this.state.playerQueries.alpha-=1;
                 this.state.add.text(510, 40, "              You Found It!\nYour opponent's card was:", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
                 this.state.add.sprite(600, 200, this.state.chosenCard.texture);
-                console.log(this.state.chosenCard);
             }
             else
             {
+                //Otherwise the card chosen is an incorrect guess
                 this.state.playerQueries.alpha-=1;
                 var tempText = this.state.add.text(520, 40, " Not Quite, Keep Trying.", {font: '32px Georgia', stroke: '#FFFFFF', strokeThickness: 2, fontWeight: 'bold'});
                 
