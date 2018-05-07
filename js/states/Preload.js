@@ -47,6 +47,8 @@ GuessWho.PreloadState = {
     this.load.image('utility_pink', 'assets/images/utility_pink.png');
     this.load.image('utility_grey', 'assets/images/utility_grey.png');
     this.load.image('utility_white', 'assets/images/utility_white.png');
+      
+    this.load.audio('Guess', ['assets/audio/Guess.mp3', 'assets/audio/Guess.m4a', 'assets/audio/Guess.ogg']);
     
     /*
     JSON

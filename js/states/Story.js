@@ -3,6 +3,8 @@ var GuessWho = GuessWho || {};
 GuessWho.StoryState = {
     create: function ()
     {
+        GuessWho.music = this.add.audio('Guess');
+        GuessWho.music.play('', 0, 1, true);
         this.add.sprite(0, 0, 'main');
         this.add.button(400, 500, 'start', function()
         {
